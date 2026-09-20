@@ -94,7 +94,7 @@ def admin_only(func):
     @wraps(func)
     async def wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE, *args, **kwargs):
         user = update.effective_user
-        if not user or user.id not in ADMIN_IDS: # <-- Ee line maati
+        if not user or user.id not in ADMIN_IDS:
             if update.callback_query:
                 await update.callback_query.answer()
             return
