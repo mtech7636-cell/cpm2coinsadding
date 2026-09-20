@@ -94,12 +94,13 @@ def admin_only(func):
     @wraps(func)
     async def wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE, *args, **kwargs):
         user = update.effective_user
-        if not user or user.id != ADMIN_ID:
+        if not user or user.id not in ADMIN_IDS: # <-- Ee line maati
             if update.callback_query:
                 await update.callback_query.answer()
             return
         return await func(update, context, *args, **kwargs)
     return wrapper
+
 
 # ================================================================
 # PERSISTENCE STORAGE HELPERS
