@@ -36,7 +36,7 @@ warnings.filterwarnings('ignore')
 # Render Environment Variable:
 #   BOT_TOKEN = your NEW BotFather token
 BOT_TOKEN = os.environ["BOT_TOKEN"]
-ADMIN_ID =7212602902
+ADMIN_ID = 7212602902
 
 ACCOUNTS_FILE = "accounts.json"
 
