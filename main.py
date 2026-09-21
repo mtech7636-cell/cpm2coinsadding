@@ -410,7 +410,7 @@ async def phoenix_farm_engine(token, uid, session, progress_callback=None):
                 f"Progress: `{min(i + batch_size, len(all_combos))}/{len(all_combos)}`\n"
                 f"Coins Harvested: `{total_coins:,}`"
             )
-        await asyncio.sleep
+        await asyncio.sleep(0.2)
 
 
     completed_combos = set()
