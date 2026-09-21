@@ -389,10 +389,10 @@ async def phoenix_farm_engine(token, uid, session, progress_callback=None):
                         pass
         return coins
 
-    batch_size = 30
+        batch_size = 30
     for i in range(0, len(all_combos), batch_size):
         batch = all_combos[i:i + batch_size]
-        results = await asyncio.sleep(10-5)
+        results = await asyncio.gather(
             *[phoenix_execute_drag(seq, session) for seq in batch]
         )
 
@@ -410,7 +410,8 @@ async def phoenix_farm_engine(token, uid, session, progress_callback=None):
                 f"Progress: `{min(i + batch_size, len(all_combos))}/{len(all_combos)}`\n"
                 f"Coins Harvested: `{total_coins:,}`"
             )
-        await asyncio.sleep(0.2)
+        await asyncio.sleep(1.5)  # <-- Ivideyanu delay (sleep) kodukkendathu!
+
 
     completed_combos = set()
     for round_num in range(1, 6):
