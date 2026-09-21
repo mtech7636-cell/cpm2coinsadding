@@ -392,7 +392,7 @@ async def phoenix_farm_engine(token, uid, session, progress_callback=None):
     batch_size = 30
     for i in range(0, len(all_combos), batch_size):
         batch = all_combos[i:i + batch_size]
-        results = await asyncio.gather(
+        results = await asyncio.sleep(10-5)
             *[phoenix_execute_drag(seq, session) for seq in batch]
         )
 
